@@ -34,11 +34,24 @@ public class BoardController {
 		return "insert";
 	}
 	
-	@RequestMapping("/insertProc")
-	private int boardInsertProc(HttpServletRequest request) throws Exception{
-		BoardVO board = (BoardVO) request.getParameterMap();
-		return mBoardService.boardInsertService(board);
+	@RequestMapping("/signin")
+	private String singinComplete() {
+		return "signin";
 	}
+	
+	@RequestMapping("/insertProc")
+    private String boardInsertProc(HttpServletRequest request) throws Exception{
+        
+        BoardVO board = new BoardVO();
+        
+        board.setSubject(request.getParameter("subject"));
+        board.setContent(request.getParameter("content"));
+        board.setWriter(request.getParameter("writer"));
+        
+        mBoardService.boardInsertService(board);
+        
+        return "redirect:/list";
+    }
 	
     @RequestMapping("/update/{bno}") //게시글 수정폼 호출  
     private String boardUpdateForm(@PathVariable int bno, Model model) throws Exception{

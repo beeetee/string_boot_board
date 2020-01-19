@@ -17,6 +17,11 @@ public class BoardController {
 	@Resource(name="com.example.demo.board.service.BoardService")
 	BoardService mBoardService;
 	
+	@RequestMapping("/homepage")
+	private String homePate() throws Exception{
+		return "main";
+	}
+	
 	@RequestMapping("/list")
 	private String boardList(Model model) throws Exception{
 		model.addAttribute("list",mBoardService.boardListService());
@@ -33,12 +38,7 @@ public class BoardController {
 	private String boardInsertForm() {
 		return "insert";
 	}
-	
-	@RequestMapping("/signin")
-	private String singinComplete() {
-		return "signin";
-	}
-	
+
 	@RequestMapping("/insertProc")
     private String boardInsertProc(HttpServletRequest request) throws Exception{
         

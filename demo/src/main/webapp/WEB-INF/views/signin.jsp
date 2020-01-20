@@ -45,7 +45,7 @@
 			String user = "root";
 			String passwd = "1234";
 			
-			 Class.forName("oracle.jdbc.driver.OracleDriver");
+			Class.forName("org.mariadb.jdbc.Driver");
 		     conn = DriverManager.getConnection(jdbcUrl, user, passwd);
 		     
 		     System.out.println(conn + "  <--conn");

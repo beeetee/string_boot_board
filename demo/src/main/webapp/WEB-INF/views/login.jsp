@@ -31,7 +31,7 @@
 		
 
 		// 1. 드라이버 로딩
-		Class.forName("oracle.jdbc.driver.OracleDriver");
+		Class.forName("org.mariadb.jdbc.Driver");
 		// 2. DB연결
 		conn = DriverManager.getConnection(jdbcUrl, user, passwd);
 		// 3. id에 해당하는 passwd 가져오기

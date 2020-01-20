@@ -21,6 +21,11 @@ public class MemberController {
 		return "signin";
 	}
 		
+	@RequestMapping("/login")
+	private String loginComplete() {
+		return "login";
+	}	
+	
 	/*
 	@RequestMapping("/insertmember")
     private String boardInsertProc(HttpServletRequest request) throws Exception{

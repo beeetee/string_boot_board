@@ -20,10 +20,7 @@ public class MemberController {
 	private String singinComplete() {
 		return "signin";
 	}
-	
-	
-	
-	
+		
 	/*
 	@RequestMapping("/insertmember")
     private String boardInsertProc(HttpServletRequest request) throws Exception{

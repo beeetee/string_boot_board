@@ -16,26 +16,13 @@
 		String id = request.getParameter("loginid");
 		String pwd = request.getParameter("loginpwd");
 		
+		out.println(id);
+		out.println(pwd);
+		
 		String jdbcUrl="jdbc:mariadb://localhost:3306/testdb";
 		String user = "root";
 		String passwd = "1234";
 		
-		Connection conn = null;
-		Statement statement = null;
-		ResultSet rs = null;
-		
-
-		// 1. 드라이버 로딩
-		Class.forName("org.mariadb.jdbc.Driver");
-		// 2. DB연결
-		conn = DriverManager.getConnection(jdbcUrl, user, passwd);
-		String query = "SELECT pwd FROM members WHERE id ='" + id + "'";
-			
-		statement = conn.createStatement();
-		rs=statement.executeQuery(query);
-
-		
-		/*
 		// JDBC 참조변수
 		Connection conn = null;
 		PreparedStatement pstmt = null;
@@ -53,8 +40,6 @@
 		pstmt.setString(1, id);
 		
 		rs = pstmt.executeQuery();
-		*/
-		
 		if (rs.next()) {
 			System.out.println(rs.getString("pwd"));
 			System.out.println(pwd);
